@@ -3,100 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Affordable and Professional web design">
-    <meta name="keywords" content="web design, affordable web design, professional web design">
-    <meta name="Author" content="Dini Jonas">
-    <title>We Think-Code | Welcome</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <title>Guess the word</title>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div id="branding">
-        <h1><span class="highlight">We</span> Code</h1>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="services.html">Services</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  
-    
-  <section id="showcase">
-    <div class="container-1">
-      
-      <h1>Affordable Web Design</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, quibusdam inventore consequuntur tenetur temporibus, ad voluptas porro iusto ipsa rerum dicta cupiditate assumenda totam, eos nisi voluptatem dolorem sunt necessitatibus.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates consequuntur beatae sapiente minima, vitae, dolore eius modi, odit incidunt est magni. Minus, quaerat. Fuga earum iure eligendi eos illo voluptas?
-      </p>
-      
-      <div>
-      <label>First name</label>
-      <input type="text" value="">
-      <br>
-      <label>Last name</label>
-      <input type="text" value="">
-      </div>
-      <button>Apply now</button>
-      <div class="box-1">
-      <img src="images/download.jpg">
-      </div>
-    </div>
-  </section>
-
-  <section id="newsletter">
-    <div class="container">
-      <h1>Subscribe to our newsletter</h1>
-      <form>
-        <input type="email" placeholder="Enter email...">
-        <button type="submit" class="button_1">Subscribe</button>
-      </form>
-    </div>
-  </section>
-<div class="container-3">
-  <label>Gender</label>
-  <select name="gender">
-    <option value="male">Male</option>
-    <option value="female">Female</option>
-  </select>
-</div>
-
-<section id="boxes">
-  <div class="container-2">
-    <div class="box1">
-      <h3>HTML 5 MarkUp</h3>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt inventore molestias rerum aliquam facilis exercitationem dignissimos minima vel ratione ex facere libero beatae, maxime in, architecto repellat sequi nobis veritatis?
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda beatae dolor eaque suscipit. Nam illum mollitia tenetur.<strong> Repellat animi error quos dolore exercitationem accusantium aspernatur dolorum! Blanditiis voluptatem porro repellendus.</strong>
-       </p>
-    </div>
+<header id="main-header">
+  <div class="container">
+    <h1>Guess the Word</h1>
   </div>
-  <div class="box-2">
-    <h3>GRAPHIC Design</h3>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt inventore molestias rerum aliquam facilis exercitationem dignissimos minima vel ratione ex facere libero beatae, maxime in, architecto repellat sequi nobis veritatis?
-      Lorem ipsum dolor sit amet,<em> consectetur adipisicing elit. Assumenda beatae dolor eaque suscipit.</em> Nam illum mollitia tenetur.<strong> Repellat animi error quos dolore exercitationem accusantium aspernatur dolorum! Blanditiis voluptatem porro repellendus.</strong>
-     </p>
-  </div> <div class="box-3">
-    <h3>CSS Styling</h3>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt inventore molestias rerum aliquam facilis exercitationem dignissimos minima vel ratione ex facere libero beatae, maxime in, architecto repellat sequi nobis veritatis?
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda beatae dolor eaque suscipit. Nam illum mollitia tenetur.<strong> Repellat animi error quos dolore exercitationem accusantium aspernatur dolorum! Blanditiis voluptatem porro repellendus.</strong>
-     </p>
+</header>   
+  <div id="scrambled">  
+    <h2 id="scrambleWord"></h2>
+    <p id="hint"></p> 
   </div>
-</div> 
-<div class="box-4">
-  <h3>JavaScript</h3>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt inventore molestias rerum aliquam facilis exercitationem dignissimos minima vel ratione ex facere libero beatae, maxime in, architecto repellat sequi nobis veritatis?
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda beatae dolor eaque suscipit. Nam illum mollitia tenetur.<strong> Repellat animi error quos dolore exercitationem accusantium aspernatur dolorum! Blanditiis voluptatem porro repellendus.</strong>
-   </p>
+<button type="button" onclick="startGame()">Start</button>
+<button type="button" onclick="stopFunction()">Stop</button>   
+  <input id="input" type="text" placeholder="Guess The word" />           
+<h3 id="output">Result:</h3> 
+<div class="foot">   
+<button type="button" onclick="check()">answer</button>
+<h1 id="item-display"></h1> 
+<button type="button" onclick="refreshPage()">refresh</button>                
 </div>
-</section>
-
+<div class="flex justify-between">
+  <div>
+    <p class="text-lg">
+      Guesses left:
+      <span id="guesses" class="font-bold">3</span>
+    </p>
+  </div>
+</div>
+<div class="bg-gray-300 p-2 rounded-md">
+  <p class="text-lg text-gray-800">
+    Time left:
+    <span id="timer" class="font-bold">0</span>
+    seconds
+  </p>
+  <p class="text-lg text-gray-800">
+    Score:
+    <span id="score" class="font-bold">0</span>
+  </P>
+</div>
+<label>
+  <i class="fas fa-bars" id="btn"></i>
+  <i class="fas fa-times" id="cancel"></i>
+</label>
 <footer>
-  <p>Copyright &copy; 2024<span class="highlight"> We</span> Think-Code</p>
+  <p>&copy; All rights reserved</p>
 </footer>
-</body>
-</html>
+  <script src="index.js"></script>
+</body> 
+</html> 
